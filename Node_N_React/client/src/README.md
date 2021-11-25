@@ -1,5 +1,4 @@
-### SRC 폴더 경로 설명
----
+### SRC 폴더 경로 설명   
 **_actions, _reducers**: Redux를 위한 폴더들   
 **components/views**: Page들을 넣는 폴더   
 **components/views/Sections**: 해당 페이지에 관련된 css 파일, component들 넣는 폴더   
