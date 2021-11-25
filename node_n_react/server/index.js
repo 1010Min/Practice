@@ -4,7 +4,7 @@ const port = 5000
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const { User } = require("../models/User");
+const { User } = require("./models/User");
 const{ auth } = require("./middleware/auth");
 
 const config = require('./config/key');
@@ -23,7 +23,11 @@ mongoose.connect(config.mongoURI,{
 .catch(err => console.log(err))
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+    res.send('Hello World!')
+})
+
+app.get('/api/hello', (req, res) => {
+    res.send("프론트엔드(LandingPage.js)에 메시지 전달")
 })
 
 app.post('/register',(req, res) => {
@@ -100,6 +104,7 @@ app.get('/api/users/logout', auth, (req, res) => {
             })
         })
 })
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

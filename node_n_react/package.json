@@ -1,11 +1,11 @@
 {
-  "name": "react_1",
+  "name": "node_n_react",
   "version": "1.0.0",
   "description": "inflearn 강의",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "backend": "nodemon index.js",
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
