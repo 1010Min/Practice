@@ -51,7 +51,7 @@ function RegisterPage(props) {
         //_actions폴더에 user_actions.js
         dispatch(registerUser(body))
             .then(response => {
-            if(response.payload.register){
+            if(response.payload.success){
                 //props.history.push("/login")
                 navigate('/login') //로그인 성공시 메인 페이지로 이동
             } else{
