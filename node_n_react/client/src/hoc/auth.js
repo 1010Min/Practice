@@ -33,7 +33,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
                     } else {
                         if(option === false)
                             navigate('/')
-                    }
+                        }
                 }
             })
         }, [])

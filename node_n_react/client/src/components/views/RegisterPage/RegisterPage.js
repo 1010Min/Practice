@@ -57,7 +57,7 @@ function RegisterPage(props) {
                 navigate('/login') //로그인 성공시 메인 페이지로 이동
             } else{
                 alert('Failed to sign up')
-            }
+                }
             })
     }
 
@@ -68,8 +68,7 @@ function RegisterPage(props) {
         }}>
             
             <form style={{display: 'flex', flexDirection: 'column'}}
-                onSubmit={onSubmitHandler}
-            >
+                onSubmit={onSubmitHandler}>
                 <label>Email</label>
                 <input type="email" value ={Email} onChange={onEmailHandler}/>
                 
