@@ -1,10 +1,11 @@
-<h1><b style="font-weight: bold;">node_n_react 디렉터리 구조</h1> 
+<h1 style="font-weight: bold">node_n_react 디렉터리 구조</h1> 
 
 ```
 D:.
 |   .gitignore 
 |   package-lock.json
 |   package.json
+|   README.md
 |   
 +---client
 |   |   .gitignore
@@ -75,3 +76,6 @@ D:.
     \---models
             User.js
 ```
+
+
+~~현재 Auth 기능이 제대로 실행되지 X -> 버전 차이로 인한 적용 X~~  
