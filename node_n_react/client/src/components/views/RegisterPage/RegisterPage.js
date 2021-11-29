@@ -53,6 +53,7 @@ function RegisterPage(props) {
             .then(response => {
             if(response.payload.success){
                 //props.history.push("/login")
+                alert('회원가입에 성공했습니다.')
                 navigate('/login') //로그인 성공시 메인 페이지로 이동
             } else{
                 alert('Failed to sign up')

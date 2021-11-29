@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import NavBar from "../NavBar/NavBar";
 //import { response } from "express";
 
 function LandingPage(props) {
@@ -16,6 +17,7 @@ function LandingPage(props) {
         axios.get('/api/users/logout')
         .then(response => {
             if(response.data.success){
+                alert('로그아웃에 성공했습니다.')
                 navigate('/login')
             } else{
                 alert('로그아웃에 실패했습니다.')
@@ -24,13 +26,15 @@ function LandingPage(props) {
     }
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh'
-        }}>
-            <h2>시작 페이지</h2>
+        <div>
+            <NavBar/>
+            
+            <h2 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',
+            width: '100%', height: '25vh' }}>
+                시작 페이지
+            </h2>
 
-            <button onClick={onClickHandler}>
+            <button style={{width:'100px',margin: 'auto', display:'block'}}onClick={onClickHandler}>
                 로그아웃
             </button>
         </div>

@@ -37,6 +37,7 @@ function LoginPage(props) {
         dispatch(loginUser(body))
             .then(response => {
                 if(response.payload.loginSuccess){
+                    alert('로그인에 성공했습니다.')
                     navigate('/') //로그인 성공시 메인 페이지로 이동
                 } else{
                     alert('Error')
