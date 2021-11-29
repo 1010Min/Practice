@@ -30,7 +30,7 @@ app.get('/api/hello', (req, res) => {
     res.send("프론트엔드(LandingPage.js)에 메시지 전달")
 })
 
-app.post('/register',(req, res) => {
+app.post('/api/users/register',(req, res) => {
 
     //회원 가입할 때 필요한 정보들을 client에서 가져오면
     //그것들을 데이터베이스에 넣어준다.
