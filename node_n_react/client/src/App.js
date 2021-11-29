@@ -11,6 +11,7 @@ import {
 import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
+import Auth from './hoc/auth'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+
         <Routes>
           <Route exact={true} path={"/"} element={<LandingPage/>} />
           <Route exact={true} path={"/login"} element={<LoginPage/>} />  
@@ -33,6 +35,8 @@ function App() {
     </Router>
   );
 }
+
+//admin user만 사용하게 하고 싶으면 Auth(페이지, null, true) -> true값을 마지막에 지정시켜주면 됨
 
 export default App;
 
