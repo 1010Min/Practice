@@ -38,5 +38,13 @@ function App() {
 
 //admin user만 사용하게 하고 싶으면 Auth(페이지, null, true) -> true값을 마지막에 지정시켜주면 됨
 
+/*
+  <Route exact={true} path={"/"} element={Auth(<LandingPage/>, null)} />
+  <Route exact={true} path={"/login"} element={Auth(<LoginPage/>, false)} />  
+  <Route exact={true} path={"/register"} element={Auth(<RegisterPage/>, false)} />
+  강의에서는 Switch를 사용했으나 react-router-dom v6에서는 Routes 사용
+  -> element에서 Auth 적용 방법??
+ */
+
 export default App;
 
