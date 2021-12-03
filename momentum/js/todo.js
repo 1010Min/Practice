@@ -13,13 +13,18 @@ function saveToDos() {
 function deleteToDo(event) {
     const li = event.target.parentElement; //지우고 싶은 li
     li.remove(); //선택한 li 제거
+
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //클릭한 li.id와 다른 toDo는 남기기
+    //li.id는 string type이므로 integer type인 toDo.id와 비교하기 위해 parseInt 사용
+    saveToDos(); //지운 것 저장하기 위해서 한번 더 호출
 }
 
 function paintToDo(newTodo) {
     const li = document.createElement("li");
+    li.id = newTodo.id; //각 li마다 id 부여
 
     const span = document.createElement("span");
-    span.innerText = newTodo;
+    span.innerText = newTodo.text; //text에서 Object로 바뀌었으므로
 
     const button = document.createElement("button");
     button.innerText = "🗑";
@@ -34,8 +39,14 @@ function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = toDoInput.value; //입력값 저장
     toDoInput.value = ""; //엔터 누르면 입력값 사라짐
-    toDos.push(newTodo); //array에 입력값 넣기
-    paintToDo(newTodo);
+
+    const newTodoObj = {
+        text: newTodo,
+        id: Date.now(), //id로 각각의 li item을 구분하기 위함
+    }
+
+    toDos.push(newTodoObj); //array에 object 넣기
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
@@ -45,8 +56,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if(savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
-    toDos = parsedToDos;
+    toDos = parsedToDos; //이전에 저장된 toDo 저장
     parsedToDos.forEach(paintToDo);
 }
-
-
