@@ -13,6 +13,9 @@ app.use("/public", express.static(__dirname + "/public"));
 //home.pug를 render해주는 route handler 생성
 app.get("/", (req, res) => res.render("home"));
 
+//유저가 어떤 url로 이동하던지 홈으로 돌려보냄(다른 url 사용하지 않을 것이므로)
+app.get("/*", (req, res) => res.redirect("/"));
+
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
 app.listen(3000, handleListen);
