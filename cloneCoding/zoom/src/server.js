@@ -1,5 +1,6 @@
 import http from "http";
-import WebSocket from "ws";
+//import WebSocket from "ws";
+import SocketIO from "socket.io";
 import express from "express";
 
 const app = express();
@@ -22,28 +23,39 @@ const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
 //createServer를 하려면 requestListener 경로가 있어야 함 -> application
 //express application으로부터 http 서버 만들기
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
-//새로운 WebSocket 서버 만들기
-const wss = new WebSocket.Server({ server });
+const wsServer = SocketIO(httpServer);
 
-const sockets = []; //누군가 서버에 연결하면 connection을 추가
-
-wss.on("connection", (socket) => {
-    sockets.push(socket);
-    socket["nickname"] = "Anon";
-    console.log("Connected to Browser ✅"); 
-    socket.on("close", () => console.log("Disconnected from the Browser ❌"))
-    socket.on("message", (msg) => {
-        const message = JSON.parse(msg);
-        switch(message.type){
-            case "new_message":
-                //각 브라우저를 aSocket으로 표시하고 메세지를 보내는 것
-                sockets.forEach((aSocket) => aSocket.send(`${socket.nickname}: ${message.payload}`));    
-            case "nickname":
-                socket["nickname"] = message.payload;
-        }
+wsServer.on("connection", (socket) => {
+    socket.on("enter_room", (msg, done) => {
+        console.log(msg);
+        setTimeout(() => {
+            done();
+        }, 10000) // 10포 후에 done() 실행
     });
-}); //event가 발동하는 것 기다림
+});
 
-server.listen(3000, handleListen);
+// //새로운 WebSocket 서버 만들기
+// const wss = new WebSocket.Server({ server });
+
+// const sockets = []; //누군가 서버에 연결하면 connection을 추가
+
+// wss.on("connection", (socket) => {
+//     sockets.push(socket);
+//     socket["nickname"] = "Anon";
+//     console.log("Connected to Browser ✅"); 
+//     socket.on("close", () => console.log("Disconnected from the Browser ❌"))
+//     socket.on("message", (msg) => {
+//         const message = JSON.parse(msg);
+//         switch(message.type){
+//             case "new_message":
+//                 //각 브라우저를 aSocket으로 표시하고 메세지를 보내는 것
+//                 sockets.forEach((aSocket) => aSocket.send(`${socket.nickname}: ${message.payload}`));    
+//             case "nickname":
+//                 socket["nickname"] = message.payload;
+//         }
+//     });
+// }); //event가 발동하는 것 기다림
+
+httpServer.listen(3000, handleListen);
