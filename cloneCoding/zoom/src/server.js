@@ -2,6 +2,7 @@ import http from "http";
 //import WebSocket from "ws";
 import SocketIO from "socket.io";
 import express from "express";
+import { emit } from "process";
 
 const app = express();
 
@@ -35,11 +36,15 @@ wsServer.on("connection", (socket) => {
         console.log(socket.id);
         console.log(socket.rooms);
         socket.join(roomName);
-        console.log(socket.rooms);
         done();
-        setTimeout(() => {
-            done("hello from the backend"); //보안상 Backend에서 실행되는 것이 아닌 Frontend에 의해 실행되는 function
-        }, 15000);
+        socket.to(roomName).emit("welcome");
+    });
+    socket.on("disconnecting", () => {
+        socket.rooms.forEach(room => socket.to(room).emit("bye"));
+    });
+    socket.on("new_message", (msg, room, done) => {
+        socket.to(room).emit("new_message", msg);
+        done();
     });
 });
 
