@@ -28,8 +28,15 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
+    socket.onAny((event) => {
+        console.log(`Socket Event: ${event}`);
+    });
     socket.on("enter_room", (roomName, done) => {
-        console.log(roomName);
+        console.log(socket.id);
+        console.log(socket.rooms);
+        socket.join(roomName);
+        console.log(socket.rooms);
+        done();
         setTimeout(() => {
             done("hello from the backend"); //보안상 Backend에서 실행되는 것이 아닌 Frontend에 의해 실행되는 function
         }, 15000);
