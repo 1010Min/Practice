@@ -1,7 +1,8 @@
 import http from "http";
 //import WebSocket from "ws";
-import SocketIO from "socket.io";
+import { Server } from "socket.io";
 import express from "express";
+import { instrument } from "@socket.io/admin-ui";
 import { emit } from "process";
 
 const app = express();
@@ -26,7 +27,16 @@ const handleListen = () => console.log(`Listening on http://localhost:3000`);
 //express application으로부터 http 서버 만들기
 const httpServer = http.createServer(app);
 
-const wsServer = SocketIO(httpServer);
+const wsServer = new Server(httpServer, {
+    cors: {
+        origin: ["https://admin.socket.io"],
+        credentials: true
+    }
+});
+
+instrument(wsServer, {
+    auth: false
+});
 
 function publicRooms() {
     //sockets 안으로 들어가서 adapter를 갖고 sids와 rooms를 가져옴 -> wsServer 안에서
