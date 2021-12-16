@@ -64,3 +64,16 @@ socket.on("bye", (left) => {
 });
 
 socket.on("new_message", addMessage); //다른 서버로부터 메세지 받음
+
+socket.on("room_change", (rooms) => {
+    const roomList = welcome.querySelector("ul");
+    roomList.innerHTML = "";
+    if(rooms.length === 0){ //내 어플리케이션에 room이 하나도 없으면 비움
+        return;
+    }
+    rooms.forEach(room => {
+        const li = document.createElement("li");
+        li.innerText = room;
+        roomList.append(li);
+    })
+});
