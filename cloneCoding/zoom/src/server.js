@@ -45,6 +45,11 @@ function publicRooms() {
     return publicRooms;
 }
 
+function countRoom(roomName){
+    // 가끔 roomName을 찾을 수도 있지만 아닐수도 있을 때 ? 사용
+    return wsServer.sockets.adapter.rooms.get(roomName)?.size;
+}
+
 wsServer.on("connection", (socket) => {
     socket["nickname"] = "Anon";
     socket.onAny((event) => {
@@ -56,12 +61,13 @@ wsServer.on("connection", (socket) => {
         console.log(socket.rooms);
         socket.join(roomName);
         done();
-        socket.to(roomName).emit("welcome", socket.nickname);
+        socket.to(roomName).emit("welcome", socket.nickname, countRoom(roomName));
         wsServer.sockets.emit("room_change", publicRooms());
     });
     socket.on("disconnecting", () => {
         socket.rooms.forEach((room) => 
-            socket.to(room).emit("bye", socket.nickname));
+            //disconnecting은 방 퇴장 직전이므로 나가기 전의 나도 포함되서 계산됨 -> ∴ -1을 해줌
+            socket.to(room).emit("bye", socket.nickname, countRoom(room)-1));
     });
     socket.on("disconnect", () => {
         wsServer.sockets.emit("room_change", publicRooms());
