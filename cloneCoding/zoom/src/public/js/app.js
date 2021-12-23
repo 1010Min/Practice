@@ -134,22 +134,46 @@ socket.on("welcome", async () => {
 
 //// Peer B에서 실행되는 코드
 socket.on("offer", async (offer) => {
+    console.log("received the offer");
     myPeerConnection.setRemoteDescription(offer);
     const answer = await myPeerConnection.createAnswer();
     myPeerConnection.setLocalDescription(answer);
     socket.emit("answer", answer, roomName); //answer로 응답
+    console.log("sent the answer");
 });
 
 socket.on("answer", (answer) => { //Peer A에서 실행 -> answer를 받음
-    myPeerConnection.setLocalDescription(answer);
+    console.log("received the answer");
+    myPeerConnection.setRemoteDescription(answer);
 }); 
+
+socket.on("ice", ice => { //candidate를 받으면 ICECandidate 추가
+    console.log("received candidate");
+    myPeerConnection.addIceCandidate(ice);
+})
 
 // RTC Code
 
 function makeConnection() {
     myPeerConnection = new RTCPeerConnection(); //해당 연결을 모든 곳에 공유하고 싶을 때
-    //console.log(myStream.getTracks());
+    myPeerConnection.addEventListener("icecandidate", handleIce);
+    myPeerConnection.addEventListener("addstream", handleAddStream);
     myStream.getTracks().forEach((track) => {
         myPeerConnection.addTrack(track, myStream);
     });
 }
+
+function handleIce(data){
+    console.log("sent candidate");
+    socket.emit("ice", data.candidate, roomName);
+}
+
+function handleAddStream(data){
+    // console.log("got an stream from my peer");
+    // console.log("Peer's Stream: ", data.stream);
+    // console.log("My Stream: ", myStream);
+    const peerFace = document.getElementById("peerFace");
+    peerFace.srcObject = data.stream;
+}
+
+//다른 브라우저로부터 stream 주고 받기
