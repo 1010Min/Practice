@@ -16,6 +16,7 @@ let muted = false; //음소거 여부를 추적할 variable
 let cameraOff = false; //카메라가 켜져or꺼져 있는지 추적할 variable
 let roomName;
 let myPeerConnection;
+let myDataChannel;
 
 async function getCameras() {
     try {
@@ -132,15 +133,22 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
 //// Peer A에서 실행되는 코드
 socket.on("welcome", async () => {
+    myDataChannel = myPeerConnection.createDataChannel("chat");
+    myDataChannel.addEventListener("message", (event) => console.log(event.data));
+    console.log("made data channel");
     const offer = await myPeerConnection.createOffer();
     myPeerConnection.setLocalDescription(offer);
     //console.log(offer); //세션에서 일어날 일에 대한 설명
     console.log("sent the offer");
     socket.emit("offer", offer, roomName); //Peer B로 offer를 보냄
-})
+});
 
 //// Peer B에서 실행되는 코드
 socket.on("offer", async (offer) => {
+    myPeerConnection.addEventListener("datachannel", (event) => {
+        myDataChannel = event.channel;
+        myDataChannel.addEventListener("message", (event) => console.log(event.data));
+    });
     console.log("received the offer");
     myPeerConnection.setRemoteDescription(offer);
     const answer = await myPeerConnection.createAnswer();
