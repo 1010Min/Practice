@@ -91,7 +91,14 @@ function handleCameraClick() {
 }
 
 async function handleCameraChange() {
-    await getMedia(camerasSelect.value);
+    await getMedia(camerasSelect.value); //video device의 새로운 id로 새 stream 생성
+    if(myPeerConnection) {
+        const videoTrack = myStream.getVideoTracks()[0];
+        const videoSender = myPeerConnection
+        .getSenders()
+        .find((sender) => sender.track.kind === "video");
+    videoSender.replaceTrack(videoTrack);
+    }
 }
 
 muteBtn.addEventListener("click", handleMuteClick);
@@ -175,5 +182,3 @@ function handleAddStream(data){
     const peerFace = document.getElementById("peerFace");
     peerFace.srcObject = data.stream;
 }
-
-//다른 브라우저로부터 stream 주고 받기
