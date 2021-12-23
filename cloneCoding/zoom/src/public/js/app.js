@@ -162,7 +162,19 @@ socket.on("ice", ice => { //candidate를 받으면 ICECandidate 추가
 // RTC Code
 
 function makeConnection() {
-    myPeerConnection = new RTCPeerConnection(); //해당 연결을 모든 곳에 공유하고 싶을 때
+    myPeerConnection = new RTCPeerConnection({
+        iceServers: [
+            {
+                urls: [ //구글에서 무료로 제공하는 서버(only test용)
+                    "stun:stun.l.google.com:19302",
+                    "stun:stun1.l.google.com:19302",
+                    "stun:stun2.l.google.com:19302",
+                    "stun:stun3.l.google.com:19302",
+                    "stun:stun4.l.google.com:19302",
+                ],
+            },
+        ],
+    }); //해당 연결을 모든 곳에 공유하고 싶을 때
     myPeerConnection.addEventListener("icecandidate", handleIce);
     myPeerConnection.addEventListener("addstream", handleAddStream);
     myStream.getTracks().forEach((track) => {
