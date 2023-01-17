@@ -26,5 +26,14 @@
         for i in reversed(range(n)): #리스트 원소를 뒤집고 반환하는 reversed() 사용
             print(i + 1)
         ```
-        
 * **day02_008** : 배열 두 배 만들기
+
+### Day3. 사칙연산, 배열, 수학
+* **day03_009** : 나머지 구하기
+* **day03_010** : 중앙값 구하기
+* **day03_011** : 최빈값 구하기
+    * `sort()` 함수는 숫자를 정렬시켜주지만, none을 return함
+    ∴ `numbers.sort()`를 진행 후, numbers의 길이를 재야 함
+    * `len()` 함수는 .len()이 아닌 `len(list)`형태로 사용
+    * Counter에서는 최빈값을 구하는 함수 제공 &rarr; `most_common()`
+* **day03_012** : 짝수는 싫어요
