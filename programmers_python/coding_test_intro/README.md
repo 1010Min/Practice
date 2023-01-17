@@ -31,7 +31,7 @@
 ### Day3. 사칙연산, 배열, 수학
 * **day03_009** : 나머지 구하기
 * **day03_010** : 중앙값 구하기
-* **day03_011** : 최빈값 구하기
+* [**day03_011**](https://github.com/1010Min/Practice/blob/e771216f15669fbe173e8cfef457dae84c3a17a8/programmers_python/coding_test_intro/day03_011.py) : 최빈값 구하기
     * `sort()` 함수는 숫자를 정렬시켜주지만, none을 return함
     ∴ `numbers.sort()`를 진행 후, numbers의 길이를 재야 함
     * `len()` 함수는 .len()이 아닌 `len(list)`형태로 사용
