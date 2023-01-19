@@ -43,3 +43,24 @@
 * **day04_014** : 피자 나눠 먹기 (2)
 * **day04_015** : 피자 나눠 먹기 (3)
 * **day04_016** : 배열의 평균값
+
+### Day5. 수학, 배열
+* **day05_017** : 옷가게 할인 받기
+* **day05_018** : 아이스 아메리카노
+* **day05_019** : 나이 출력
+* **day05_020** : 배열 뒤집기
+    * **배열 뒤집는 3가지 방법**
+        1. 슬라이싱
+            ```python
+            reversed_listName = listName[::-1]
+            ```
+        2. `reverse()` 메서드
+            ```python
+            listName.reverse()
+            ```
+            &rarr; 원본 리스트 listName의 순서가 바뀜
+        3. 내장함수 `reversed()`
+            ```python
+            reversed_listName = list(reversed(listName))
+            ```
+            &rarr; `reversed()` 내장함수는 순서가 뒤집어진 iterator 객체 형태로 반환하므로, 내장함수 `list()`를 사용해 자료형 변환이 필요함
