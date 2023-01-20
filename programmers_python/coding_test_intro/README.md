@@ -64,3 +64,23 @@
             reversed_listName = list(reversed(listName))
             ```
             &rarr; `reversed()` 내장함수는 순서가 뒤집어진 iterator 객체 형태로 반환하므로, 내장함수 `list()`를 사용해 자료형 변환이 필요함
+
+### Day6. 문자열, 반복문, 출력, 배열, 조건문
+* **day06_021** : 문자열 뒤집기
+* **day06_022** : 직각삼각형 출력하기
+* **day06_023** : 짝수 홀수 개수
+    * **변수 여러 개  한 번에 초기화**
+        ```python
+        a = b = c = 0
+        # a, b = 0 #이런 식으로 초기화 하면 TypeError 발생
+        ```
+* **day06_024** : 문자 반복 출력하기
+    * **리스트의 요소를 문자열 형태로 반환하는 방법**
+        ```python
+        list = ['A', 'B', 'C']
+
+        ''.join(list) #List의 element들을 공백 없이 붙임
+        ' '.join(list) #List의 element들을 공백을 이용해 구분
+        '-'.join(list) #List의 element들을 '-' 문자를 이용해 구분
+        '\n'.join(list) #List의 element들을 한 줄에 하나씩 출력
+        ```
