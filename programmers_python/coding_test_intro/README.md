@@ -94,7 +94,7 @@
 
 ### Day8. 배열, 구현, 수학
 * **day08_029** : 배열 자르기
-* **day08_030** : 외계행성의 나이
+* [**day08_030**](https://github.com/1010Min/Practice/blob/0a11dd0ee3dfcac1659a1172733933a032e2a501/programmers_python/coding_test_intro/day08_030.py) : 외계행성의 나이
     * **파이썬 아스키코드 변환**
         * `ord()`: 문자열을 아스키코드로 변환하는 함수
             ```python
@@ -109,6 +109,6 @@
                 print(chr(i), end = '')
             #a b c d e f g h i j k l m n o p q r s t u v w x y z
             ```
-* **day08_031** : 진료순서 정하기
+* [**day08_031**](https://github.com/1010Min/Practice/blob/0a11dd0ee3dfcac1659a1172733933a032e2a501/programmers_python/coding_test_intro/day08_031.py) : 진료순서 정하기
     * `.index()`: 리스트 중 특정 원소가 몇 번째에 처음으로 등장했는가 &rarr; 인덱스 순서 알려줌
 * **day08_032** : 순서쌍의 개수
