@@ -112,3 +112,27 @@
 * [**day08_031**](https://github.com/1010Min/Practice/blob/0a11dd0ee3dfcac1659a1172733933a032e2a501/programmers_python/coding_test_intro/day08_031.py) : 진료순서 정하기
     * `.index()`: 리스트 중 특정 원소가 몇 번째에 처음으로 등장했는가 &rarr; 인덱스 순서 알려줌
 * **day08_032** : 순서쌍의 개수
+
+### Day9. 수학, 문자열, 해시, 완전탐색, 조건문
+* **day09_033** : 개미 군단
+* **day09_034** : 모스부호 (1)
+* **day09_035** : 가위 바위 보
+    * **파이썬 숫자 각 자리수 분리**
+        1. 문자열로 변환 후 분리
+            ```python
+            a = []
+            for i in str(number):
+                a.append(i)
+            ```
+        2. 10으로 나눠 자리수 분리 (1의 자리부터 분리)
+            ```python
+            a = []
+            while (number != 0):
+                a.append(number % 10)
+                number = number // 10
+            ```
+        3. `map()` 함수 사용하여 원소값 더하기
+            ```python
+            sum(map(int, str(number)))
+            ```
+* **day09_036** : 구슬을 나누는 경우의 수
