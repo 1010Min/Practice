@@ -135,4 +135,4 @@
             ```python
             sum(map(int, str(number)))
             ```
-* **day09_036** : 구슬을 나누는 경우의 수
+* [**day09_036**](https://github.com/1010Min/Practice/blob/b1629ff63e76d20fe3dd0026c4aeeeecb27f176d/programmers_python/coding_test_intro/day09_036.py) : 구슬을 나누는 경우의 수
