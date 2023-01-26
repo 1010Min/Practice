@@ -139,7 +139,7 @@
 
 ### Day10. 조건문, 배열, 수학, 시뮬레이션
 * **day10_037** : 점의 위치 구하기
-* **day10_038** : 2차원으로 만들기
+* [**day10_038**](https://github.com/1010Min/Practice/blob/d4f03e6fea56f7cce4efbd85e44a3a8b599cb6c3/programmers_python/coding_test_intro/day10_038.py): 2차원으로 만들기
     * **1차원 배열 2차원 배열로 만들기**
         1. `reshape()` 함수 사용
             numpy array로 변환 후 `reshape(x행, y열)`의 2차원 배열로 변환
@@ -156,5 +156,5 @@
                     answer.append(num_list[i:i+n])
                 return answer
             ```
-* **day10_039** : 공 던지기
+* [**day10_039**](https://github.com/1010Min/Practice/blob/d4f03e6fea56f7cce4efbd85e44a3a8b599cb6c3/programmers_python/coding_test_intro/day10_039.py) : 공 던지기
 * **day10_040** : 배열 회전시키기
