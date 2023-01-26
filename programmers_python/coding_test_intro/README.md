@@ -136,3 +136,25 @@
             sum(map(int, str(number)))
             ```
 * [**day09_036**](https://github.com/1010Min/Practice/blob/b1629ff63e76d20fe3dd0026c4aeeeecb27f176d/programmers_python/coding_test_intro/day09_036.py) : 구슬을 나누는 경우의 수
+
+### Day10. 조건문, 배열, 수학, 시뮬레이션
+* **day10_037** : 점의 위치 구하기
+* **day10_038** : 2차원으로 만들기
+    * **1차원 배열 2차원 배열로 만들기**
+        1. `reshape()` 함수 사용
+            numpy array로 변환 후 `reshape(x행, y열)`의 2차원 배열로 변환
+            ```python
+            import numpy as np
+            np.array(num_list).reshape(x행, y열).tolist() #tolist()로 list 형변환
+            ```
+        2. `append()` 함수 사용
+            n * len(num_list) 배열로 만드는 경우
+            ```python
+            def solution(num_list, n):
+                answer = []
+                for i in range(0, len(num_list), n):
+                    answer.append(num_list[i:i+n])
+                return answer
+            ```
+* **day10_039** : 공 던지기
+* **day10_040** : 배열 회전시키기
