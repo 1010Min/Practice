@@ -158,3 +158,20 @@
             ```
 * [**day10_039**](https://github.com/1010Min/Practice/blob/d4f03e6fea56f7cce4efbd85e44a3a8b599cb6c3/programmers_python/coding_test_intro/day10_039.py) : 공 던지기
 * **day10_040** : 배열 회전시키기
+
+### Day11. 수학, 반복문
+* **day11_041** : 주사위의 개수
+* **day11_042** : 합성수 찾기
+    * 루트(제곱근) 계산 : 2의 루트 = `2**(1/2)`
+* **day11_043** : 최댓값 만들기(1)
+* **day11_044** : 팩토리얼
+    * 팩토리얼의 경우, `factorial()`함수 사용
+        ```python
+        from math import factorial
+        
+        def solution(n):
+            k = 10
+            while n < factorial(k):
+                k -= 1
+            return k
+        ```
