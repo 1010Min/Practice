@@ -161,10 +161,10 @@
 
 ### Day11. 수학, 반복문
 * **day11_041** : 주사위의 개수
-* **day11_042** : 합성수 찾기
+* [**day11_042**](https://github.com/1010Min/Practice/blob/a7542167f6283c3d82f4baf6db078585f2a60be6/programmers_python/coding_test_intro/day11_042.py) : 합성수 찾기
     * 루트(제곱근) 계산 : 2의 루트 = `2**(1/2)`
 * **day11_043** : 최댓값 만들기(1)
-* **day11_044** : 팩토리얼
+* [**day11_044**](https://github.com/1010Min/Practice/blob/a7542167f6283c3d82f4baf6db078585f2a60be6/programmers_python/coding_test_intro/day11_044.py) : 팩토리얼
     * 팩토리얼의 경우, `factorial()`함수 사용
         ```python
         from math import factorial
