@@ -206,3 +206,24 @@
         * `문자열.lower().`: 해당 문자열을 소문자로 변환
         * `문자열.isupper()`: 해당 문자열이 대문자인지 판단
         * `문자열.islower()`: 해당 문자열이 소문자인지 판단
+
+### Day15. 문자열, 해시, 배열, 수학
+* **day15_057** : 영어가 싫어요
+    1. 해당 문제 다른 풀이 (1)
+        ```python
+        def solution(numbers):
+            r = {'zero': '0', 'one': '1', 'two': '2', 'three': '3', 'four': '4','five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9'} for k in r.keys():
+            numbers = numbers.replace(k, r[k])
+            return int(numbers)
+        ```
+    2. 해당 문제 다른 풀이 (2)
+        `enumerate()` 함수는 기본적으로 인덱스와 원소로 이루어진 튜플(tuple)을 만들어줌
+        ```python
+        def solution(numbers):
+            for num, eng in enumerate(["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]):
+            numbers = numbers.replace(eng, str(num))
+            return int(numbers)
+        ```
+* **day15_058** : 인덱스 바꾸기
+* **day15_059** : 한 번만 등장한 문자
+* **day15_060** : 약수 구하기
