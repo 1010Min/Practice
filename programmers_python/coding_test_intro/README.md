@@ -288,7 +288,7 @@
 ### Day22. dp, 수학, 조건문, 배열
 * **day22_085** : 저주의 숫자 3
 * **day22_086** : 평행
-* **day22_087** : 겹치는 선분의 길이
+* [**day22_087**](https://github.com/1010Min/Practice/blob/81117e7e4acc2f2cc487b42a2ba1546a829fb683/programmers_python/coding_test_intro/day22_087.py) : 겹치는 선분의 길이
     * **`enrumrate()` 내장 함수**
         * 순서가 있는 자료형(list, set, tuple, dictionary, string)을 입력으로 받아 인덱스 값을 포함하는 enumerate 객체를 돌려줌
         * for문과 함께 사용하면 자료형의 현재 순서(index)와 그 값을 쉽게 알 수 있음
