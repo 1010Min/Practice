@@ -117,7 +117,7 @@ sorted(arr, key=lambda x : x)
         sorted(arr, key=lambda x : (x[0], x[1]))
         ```
 
-#### 10진수 → 2진수로 변환할 때, 자릿수 맞춰서 출력
+#### [**10진수 → 2진수로 변환할 때, 자릿수 맞춰서 출력**](37_17681.py)
 * `.zfill(k)` : k자리의 이진수를 변환받을 수 있음
     ```python
     arr.append(bin(9).replace('0b',"").zfill(5))
